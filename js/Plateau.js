@@ -20,5 +20,9 @@ function plateau(container) {
     return ships;
   };
 
+  self.initialShipPosition = function() {
+    return point(210, 400);
+  };
+
   return self;
 }
