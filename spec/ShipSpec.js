@@ -21,13 +21,26 @@ describe("ship", function() {
     expect(s.corner.y).toEqual(20);
   });
 
-  describe("moving left", function() {
-    it("should shift left by 10 pixels", function() {
-      var s = ship(fakePlateau());
+  describe("moving", function () {
 
-      s.moveLeft();
+    describe("left", function () {
+      it("should shift left by 10 pixels", function () {
+        var s = ship(fakePlateau());
 
-      expect(s.corner.x).toEqual(0);
+        s.moveLeft();
+
+        expect(s.corner.x).toEqual(0);
+      });
+    });
+
+    describe("right", function () {
+      it("should shift right by 10 pixels", function () {
+        var s = ship(fakePlateau());
+
+        s.moveRight();
+
+        expect(s.corner.x).toEqual(20);
+      });
     });
   });
 

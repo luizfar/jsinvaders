@@ -24,5 +24,10 @@ function ship(plateau) {
     updatePosition();
   };
 
+  self.moveRight = function() {
+    self.position(self.position().shift({x: 10, y: 0}));
+    updatePosition();
+  };
+
   return self;
 }
