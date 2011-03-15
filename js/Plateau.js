@@ -1,5 +1,5 @@
-function plateau() {
-  var self = square(point(0, 0), 200);
+function plateau(container) {
+  var self = square(point(0, 0), 420);
   var ships = [];
   
   self.element = $("<div/>");
@@ -7,9 +7,13 @@ function plateau() {
     .css("position", "relative")
     .css("width", self.side)
     .css("height", self.side)
+    .css("background", "black");
 
-  self.addShip = function(ship) {
+  container.append(self.element);
+
+  self.add = function(ship) {
     ships.push(ship);
+    self.element.append(ship.element);
   };
 
   self.ships = function() {

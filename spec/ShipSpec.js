@@ -7,16 +7,16 @@ describe("ship", function() {
 
   it("should be added to a plateau", function() {
     var p = fakePlateau();
-    spyOn(p, 'addShip');
+    spyOn(p, 'add');
 
     var s = ship(p);
 
-    expect(p.addShip).toHaveBeenCalledWith(s);
+    expect(p.add).toHaveBeenCalledWith(s);
   });
 
   function fakePlateau() {
     return {
-      addShip: function() {}
+      add: function() {}
     };
   }
 });
