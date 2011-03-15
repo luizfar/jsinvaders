@@ -11,6 +11,15 @@
       $(function() {
         var alpha = plateau($("body"));
         var playerShip = ship(alpha);
+
+        $(window).keypress(function(event) {
+          var movementPerKeyCode = {
+            '37': playerShip.moveLeft,
+            '39': playerShip.moveRight
+          };
+          var movement = movementPerKeyCode[event.keyCode];
+          movement && movement();
+        });
       });
     </script>
   </body>
