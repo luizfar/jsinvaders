@@ -18,4 +18,12 @@ describe("point", function() {
 
     expect(p1).not.toEqual(p2);
   });
+
+  it("should create other points based on a shifting object", function() {
+    var p1 = point(10, 15);
+
+    var p2 = p1.shift({ x: 3, y: -1 });
+
+    expect(p2).toEqual(point(13, 14));
+  });
 });

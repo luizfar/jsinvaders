@@ -21,6 +21,16 @@ describe("ship", function() {
     expect(s.corner.y).toEqual(20);
   });
 
+  describe("moving left", function() {
+    it("should shift left by 10 pixels", function() {
+      var s = ship(fakePlateau());
+
+      s.moveLeft();
+
+      expect(s.corner.x).toEqual(0);
+    });
+  });
+
   function fakePlateau() {
     return {
       add: function() {},

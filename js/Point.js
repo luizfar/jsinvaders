@@ -4,5 +4,9 @@ function point(x, y) {
     y: y
   };
 
+  self.shift = function(delta) {
+    return point(self.x + delta.x, self.y + delta.y);
+  };
+
   return self;
 }
