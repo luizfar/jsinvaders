@@ -40,7 +40,7 @@ describe("plateau", function() {
   it("should tell its ship's initial position", function() {
     var p = plateau(stubContainer());
 
-    expect(p.initialShipPosition()).toEqual(point(210, 400));
+    expect(p.initialShipPosition()).toBeEqual(point(210, 400));
   });
 
   function stubContainer() {

@@ -9,14 +9,14 @@ describe("point", function() {
     var p1 = point(1, 3);
     var p2 = point(1, 3);
 
-    expect(p1).toEqual(p2);
+    expect(p1).toBeEqual(p2);
   });
 
   it("should not be equal to another point with different attributes", function() {
     var p1 = point(1, 3);
     var p2 = point(2, 3);
 
-    expect(p1).not.toEqual(p2);
+    expect(p1).not.toBeEqual(p2);
   });
 
   it("should create other points based on a shifting object", function() {
@@ -24,6 +24,6 @@ describe("point", function() {
 
     var p2 = p1.shift({ x: 3, y: -1 });
 
-    expect(p2).toEqual(point(13, 14));
+    expect(p2).toBeEqual(point(13, 14));
   });
 });
