@@ -12,7 +12,7 @@ function ship(plateau) {
     .css("position", "absolute")
     .css("width", self.side)
     .css("height", self.side)
-    .css("background", "red");
+    .css("background", "red url('img/ship.png')");
 
   plateau.add(self);
 

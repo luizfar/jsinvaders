@@ -11,7 +11,7 @@ function missile(initialPosition, containingPlateau) {
     .css("position", "absolute")
     .css("width", self.side)
     .css("height", self.side)
-    .css("background", "#00ffff");
+    .css("background", "#00ffff url(img/fire.png)");
 
   function updatePosition() {
     self.element
