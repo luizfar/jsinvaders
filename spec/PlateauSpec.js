@@ -43,6 +43,21 @@ describe("plateau", function() {
     expect(p.initialShipPosition()).toBeEqual(point(210, 400));
   });
 
+  it("should update all its content", function() {
+    var p = plateau(stubContainer());
+
+    var updatableObject = {id: 1, update: function() {}};
+    var nonUpdatableObject = {id: 2};
+
+    p.add(updatableObject);
+    p.add(nonUpdatableObject);
+    spyOn(updatableObject, 'update');
+
+    p.update();
+
+    expect(updatableObject.update).toHaveBeenCalled();
+  });
+
   function stubContainer() {
     return {
       append: function() {}

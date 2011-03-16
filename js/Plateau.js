@@ -24,5 +24,11 @@ function plateau(container) {
     return point(210, 400);
   };
 
+  self.update = function() {
+    $.each(ships, function(index, element) {
+      element.update && element.update();
+    });
+  };
+
   return self;
 }

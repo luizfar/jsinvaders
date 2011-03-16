@@ -22,6 +22,12 @@
           var movement = movementPerKeyCode[event.keyCode];
           movement && movement();
         });
+
+        function gameLoop() {
+          alpha.update();
+          setTimeout(gameLoop, 10);
+        }
+        gameLoop();
       });
     </script>
   </body>

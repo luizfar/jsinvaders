@@ -22,7 +22,9 @@ function missile(initialPosition, containingPlateau) {
 
   self.move = function() {
     self.position(self.position().shift({ x: 0, y: -1}));
+    updatePosition();
   };
+  self.update = self.move;
 
   containingPlateau.add(self);
 
