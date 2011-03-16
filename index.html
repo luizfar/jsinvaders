@@ -13,11 +13,21 @@
         var alpha = plateau($("body"));
         var playerShip = ship(alpha);
 
+		function fireWrapper () {
+			playerShip.fire();
+			var pew = $("<span>", { 
+				html: "pew ", 
+				style: "display: none; background: black; color: #00ffff"
+			});
+			$("body").append(pew);
+			pew.show("slow");
+		}
+		
         $(window).keypress(function(event) {
           var movementPerKeyCode = {
             '37': playerShip.moveLeft,
             '39': playerShip.moveRight,
-            '38': playerShip.fire
+            '38': fireWrapper
           };
           var movement = movementPerKeyCode[event.keyCode];
           movement && movement();
