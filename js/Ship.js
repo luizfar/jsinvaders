@@ -44,5 +44,11 @@ function ship(plateau) {
     updatePosition();
   };
 
+  self.fire = function() {
+    var missilePosition = point(self.position().x + (self.size() - missile.missileSize) / 2, self.position().y - missile.missileSize);
+    var m = missile(missilePosition, plateau);
+    return m;
+  };
+
   return self;
 }

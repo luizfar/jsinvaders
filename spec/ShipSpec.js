@@ -21,6 +21,14 @@ describe("ship", function() {
     expect(s.corner.y).toEqual(20);
   });
 
+  it("should fire missiles", function() {
+    var s = ship(fakePlateau());
+
+    var m = s.fire();
+
+    expect(m.position()).toBeEqual(point(s.position().x + (s.size() - m.size()) / 2, s.position().y - m.size()));
+  });
+
   describe("moving", function () {
 
     describe("left", function () {

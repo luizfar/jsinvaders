@@ -5,6 +5,7 @@
     <script type="text/javascript" src="js/Square.js"></script>
     <script type="text/javascript" src="js/Plateau.js"></script>
     <script type="text/javascript" src="js/Ship.js"></script>
+    <script type="text/javascript" src="js/Missile.js"></script>
   </head>
   <body>
     <script type="text/javascript">
@@ -15,7 +16,8 @@
         $(window).keypress(function(event) {
           var movementPerKeyCode = {
             '37': playerShip.moveLeft,
-            '39': playerShip.moveRight
+            '39': playerShip.moveRight,
+            '38': playerShip.fire
           };
           var movement = movementPerKeyCode[event.keyCode];
           movement && movement();
