@@ -1,8 +1,12 @@
 function ship(plateau) {
-  var self = square(plateau.initialShipPosition(), 15);
+  var shipSize = 15;
+  var self = square(plateau.initialShipPosition(), shipSize);
   self.position = function(newPosition) {
     return self.corner = newPosition || self.corner;
-  }
+  };
+  self.size = function() {
+    return shipSize;
+  };
   
   self.element = $("<div>")
     .css("position", "absolute")
@@ -16,16 +20,27 @@ function ship(plateau) {
     self.element
       .css("top", self.corner.y)
       .css("left", self.corner.x);
-  };
+  }
   updatePosition();
+
+  function fixBoundaries() {
+    if (!plateau.contains(self.corners()[1])) {
+      self.position().x = plateau.corners()[1].x- self.size() + 1;
+    }
+    if (!plateau.contains(self.position())) {
+      self.position().x = plateau.corner.x;
+    }
+  }
 
   self.moveLeft = function() {
     self.position(self.position().shift({x: -10, y: 0}));
+    fixBoundaries();
     updatePosition();
   };
 
   self.moveRight = function() {
     self.position(self.position().shift({x: 10, y: 0}));
+    fixBoundaries();
     updatePosition();
   };
 

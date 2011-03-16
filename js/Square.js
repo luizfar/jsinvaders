@@ -4,10 +4,15 @@ function square(corner, side) {
   self.side = side;
 
   self.corners = function() {
-    return [point(corner.x, corner.y),
-            point(corner.x + side - 1, corner.y),
-            point(corner.x + side - 1, corner.y + side - 1),
-            point(corner.x, corner.y + side - 1)];
+    return [point(self.corner.x, self.corner.y),
+            point(self.corner.x + self.side - 1, self.corner.y),
+            point(self.corner.x + self.side - 1, self.corner.y + self.side - 1),
+            point(self.corner.x, self.corner.y + self.side - 1)];
+  };
+
+  self.contains = function(aPoint) {
+    return aPoint.x >= self.corner.x &&
+        aPoint.x < self.corner.x + side;
   };
 
   return self;

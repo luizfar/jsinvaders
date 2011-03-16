@@ -31,6 +31,34 @@ describe("ship", function() {
 
         expect(s.corner.x).toEqual(0);
       });
+      it("should not go beyond plateau's right most limit", function() {
+        var p = fakePlateau();
+        spyOn(p, 'contains').andCallFake(function(corner) {
+          return !(corner.equals(s.corners()[1]));
+        });
+        spyOn(p, 'corners').andReturn(
+          [null, point(40, 45)]
+        );
+
+        var s = ship(p);
+        s.moveRight();
+
+        expect(s.position().x).toBe(26);
+      });
+      it("should not go beyond plateau's left most limit", function() {
+        var p = fakePlateau();
+        spyOn(p, 'contains').andCallFake(function(corner) {
+          return !(corner.equals(s.corners()[0]));
+        });
+        spyOn(p, 'corners').andReturn(
+          [point(5, 15), point(19, 15)]
+        );
+
+        var s = ship(p);
+        s.moveLeft();
+
+        expect(s.position().x).toBe(5);
+      });
     });
 
     describe("right", function () {
@@ -46,10 +74,16 @@ describe("ship", function() {
 
   function fakePlateau() {
     return {
+      side: 31,
       add: function() {},
       initialShipPosition: function () {
         return point(10, 20);
-      }
+      },
+      corner: point(5, 15),
+      contains: function() {
+        return true;
+      },
+      corners: function() {}
     };
   }
 });
