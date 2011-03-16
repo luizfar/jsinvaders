@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>tw.luizfar</groupId>
+	<artifactId>jsinvaders</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<name>jsinvaders with jasmine on maven</name>
+	
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>jsinvaders</finalName>
+		<plugins>
+			<plugin>
+				<groupId>com.github.searls</groupId>
+				<artifactId>jasmine-maven-plugin</artifactId>
+				<version>1.0.2-beta-1</version>
+				<configuration>
+					<jsSrcDir>${project.basedir}/js</jsSrcDir>
+					<jsTestSrcDir>${project.basedir}/spec</jsTestSrcDir>
+					<preloadSources>
+						<source>${project.basedir}/lib/jquery-1.5.1.min.js</source>
+					</preloadSources>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generateManualRunner</goal>
+							<goal>resources</goal>
+							<goal>testResources</goal>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
